@@ -1,8 +1,2 @@
-numpy
-polars
 yfinance
-pandas
-matplotlib
-seaborn
-scikit-learn
-statsmodels
+talib
