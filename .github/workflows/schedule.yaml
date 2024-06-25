@@ -10,24 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       
-      - name: checkout repo content
+      - name: Checkout repo content
         uses: actions/checkout@v2 # checkout repo content to github runner
 
-      - name: set up python
+      - name: Set up conda environment
         uses: conda-incubator/setup-miniconda@v3
         with:
-          python-verson: "3.7"
-          activate-environment: venv
+          python-version: "3.7"
+          create-env: true
+          environment-name: venv
+          channels: conda-forge
+          dependencies: python=3.7,ta-lib,pip
 
       - name: Add conda to system path
         run: |
           # $CONDA is an environment variable pointing to the root of the miniconda directory
           echo $CONDA/bin >> $GITHUB_PATH
 
-      - name: install python packages
+      - name: Install Python packages
         run: |
-          conda install conda-forge::ta-lib
+          conda activate venv
           pip install -r requirements.txt
       
-      - name: run-bot
+      - name: Run bot
         run: python main.py
