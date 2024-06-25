@@ -14,11 +14,10 @@ jobs:
         uses: actions/checkout@v2 # checkout repo content to github runner
 
       - name: Set up conda environment
-        uses: conda-incubator/setup-miniconda@v3
+        uses: actions/setup-python@v3
         with:
           python-version: "3.7"
-          create-env: true
-          environment-name: environment.yaml
+
 
       - name: Add conda to system path
         run: |
@@ -27,9 +26,11 @@ jobs:
 
       - name: Install Python packages
         run: |
-          conda init
+          conda env update --file environment.yml --name venv
+      
+      - name: Activte environment
+        run: |
           conda activate venv
-          pip install -r requirements.txt
       
       - name: Run bot
         run: python main.py
