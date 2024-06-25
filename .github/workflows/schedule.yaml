@@ -29,6 +29,7 @@ jobs:
 
       - name: Install Python packages
         run: |
+          conda init
           conda activate venv
           pip install -r requirements.txt
       
