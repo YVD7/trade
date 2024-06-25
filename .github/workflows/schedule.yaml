@@ -18,9 +18,7 @@ jobs:
         with:
           python-version: "3.7"
           create-env: true
-          environment-name: venv
-          channels: conda-forge
-          dependencies: python=3.7,ta-lib,pip
+          environment-name: environment.yaml
 
       - name: Add conda to system path
         run: |
