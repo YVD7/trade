@@ -2,7 +2,7 @@ name: tradebot
 
 on: 
   schedule:
-    -cron:  '30 9 * * *'
+    - cron:  '15 9 * * *'
   workflow_dispatch:
 
 jobs:
@@ -20,8 +20,8 @@ jobs:
 
       - name: install python packages
         run: |
-          pyython -m pip install --upgrade pip  
+          python -m pip install --upgrade pip  
           pip install -r requirements.txt
       
       - name: run-bot
-        run: python3 main.py
+        run: python main.py
