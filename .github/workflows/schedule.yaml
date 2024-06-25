@@ -16,9 +16,8 @@ jobs:
       - name: set up python
         uses: conda-incubator/setup-miniconda@v3
         with:
-          miniconda-version: "latest"
-          activate-environment: foo
-          python-version: "3.7"
+          python-verson: "3.7"
+          activate-environment: venv
 
       - name: Add conda to system path
         run: |
@@ -27,7 +26,7 @@ jobs:
 
       - name: install python packages
         run: |
-          conda install -c conda-forge ta-lib
+          conda install conda-forge::ta-lib
           pip install -r requirements.txt
       
       - name: run-bot
