@@ -31,10 +31,3 @@ while True:
 
     if datetime.now().time().strftime('%H:%M') == '23:00':
         break 
-
-
-
-
-
-
-
